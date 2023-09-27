@@ -8,13 +8,12 @@ use Filament\Facades\Filament;
 use Filament\Forms\Form;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Pages\ViewRecord;
+use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
-use Filament\Tables;
-
 
 /**
  * @extends \Filament\Resources\Pages\EditRecord
@@ -37,7 +36,7 @@ trait NestedListPage
         }
     }
 
-    public function mount():void
+    public function mount(): void
     {
         // todo resolved
         parent::mount();
@@ -113,7 +112,6 @@ trait NestedListPage
         return $nestedCrumbs;
     }
 
-
     protected function getTableQuery(): Builder
     {
         $urlParams = array_values($this->urlParameters);
@@ -143,7 +141,7 @@ trait NestedListPage
             ->form(fn (Form $form): Form => $this->form($form->columns(2)));
 
         if ($resource::hasPage('edit')) {
-            $action->url(fn (Model $record): string => $resource::getUrl('edit', [...$this->urlParameters,'record' => $record]));
+            $action->url(fn (Model $record): string => $resource::getUrl('edit', [...$this->urlParameters, 'record' => $record]));
         }
     }
 
@@ -163,7 +161,7 @@ trait NestedListPage
         }
 
         if ($resource::hasPage('create')) {
-            $action->url(fn (): string => $resource::getUrl('create',parameters: $this->urlParameters));
+            $action->url(fn (): string => $resource::getUrl('create', parameters: $this->urlParameters));
         }
     }
 
@@ -173,7 +171,7 @@ trait NestedListPage
         $resource = static::getResource();
 
         $action
-            ->authorize(fn (Model $record): bool => static::getResource()::canDelete($record))            ->record($this->getRecord())
+            ->authorize(fn (Model $record): bool => static::getResource()::canDelete($record))->record($this->getRecord())
             ->recordTitle($this->getRecordTitle())
             ->successRedirectUrl($resource::getUrl('index', $this->urlParameters));
 
@@ -192,7 +190,7 @@ trait NestedListPage
             ->form(fn (Form $form): Form => $this->form($form->columns(2)));
 
         if ($resource::hasPage('view')) {
-            $action->url(fn (Model $record): string => $resource::getUrl('view', [...$this->urlParameters,'record' => $record]));
+            $action->url(fn (Model $record): string => $resource::getUrl('view', [...$this->urlParameters, 'record' => $record]));
         }
     }
 
@@ -211,7 +209,7 @@ trait NestedListPage
         return $resource::getUrl('index', $this->urlParameters);
     }
 
-    protected function getParentId(): string|int
+    protected function getParentId(): string | int
     {
         /** @var NestedResource $resource */
         $resource = $this::getResource();
@@ -241,47 +239,47 @@ trait NestedListPage
         return static::getResource()::form($form, $this->getParent());
     }
 
-/*    protected function getTableRecordUrlUsing(): ?Closure
-    {
-        return function (Model $record): ?string {
-            foreach (['view', 'edit'] as $action) {
+    /*    protected function getTableRecordUrlUsing(): ?Closure
+        {
+            return function (Model $record): ?string {
+                foreach (['view', 'edit'] as $action) {
 
-                $action = $this->getAction($action);
+                    $action = $this->getAction($action);
 
-                if (!$action) {
-                    continue;
+                    if (!$action) {
+                        continue;
+                    }
+
+                    $action->record($record);
+
+                    if ($action->isHidden()) {
+                        continue;
+                    }
+
+                    $url = $action->getUrl();
+
+                    if (!$url) {
+                        continue;
+                    }
+
+                    return $url;
                 }
 
-                $action->record($record);
+                $resource = static::getResource();
 
-                if ($action->isHidden()) {
-                    continue;
+                foreach (['view', 'edit'] as $action) {
+                    if (!$resource::hasPage($action)) {
+                        continue;
+                    }
+
+                    if (!$resource::{'can' . ucfirst($action)}($record)) {
+                        continue;
+                    }
+
+                    return $resource::getUrl($action, [...$this->urlParameters, 'record' => $record]);
                 }
 
-                $url = $action->getUrl();
-
-                if (!$url) {
-                    continue;
-                }
-
-                return $url;
-            }
-
-            $resource = static::getResource();
-
-            foreach (['view', 'edit'] as $action) {
-                if (!$resource::hasPage($action)) {
-                    continue;
-                }
-
-                if (!$resource::{'can' . ucfirst($action)}($record)) {
-                    continue;
-                }
-
-                return $resource::getUrl($action, [...$this->urlParameters, 'record' => $record]);
-            }
-
-            return null;
-        };
-    }*/
+                return null;
+            };
+        }*/
 }

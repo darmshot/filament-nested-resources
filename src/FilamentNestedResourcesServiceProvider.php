@@ -8,6 +8,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 class FilamentNestedResourcesServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'filament-nested-resources';
+
     public function configurePackage(Package $package): void
     {
         /*

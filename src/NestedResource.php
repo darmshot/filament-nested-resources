@@ -19,8 +19,6 @@ abstract class NestedResource extends Resource
 
     /**
      * Resource|NestedResource
-     *
-     * @return string
      */
     abstract public static function getParent(): string;
 
@@ -31,14 +29,14 @@ abstract class NestedResource extends Resource
             ->camel();
     }
 
-    public static function getParentId(): int|string|null
+    public static function getParentId(): int | string | null
     {
         $parentId = Route::current()->parameter(static::getParentAccessor(), Route::current()->parameter('record'));
 
         return $parentId instanceof Model ? $parentId->getKey() : $parentId;
     }
 
-    public static function getEloquentQuery(string|int|null $parent = null): Builder
+    public static function getEloquentQuery(string | int $parent = null): Builder
     {
         // todo resolved
         $query = parent::getEloquentQuery();
@@ -46,7 +44,7 @@ abstract class NestedResource extends Resource
         $key = (new $parentModel())->getKeyName();
         $query->whereHas(
             static::getParentAccessor(),
-            fn(Builder $builder) => $builder->where($key, '=', $parent ?? static::getParentId())
+            fn (Builder $builder) => $builder->where($key, '=', $parent ?? static::getParentId())
         );
 
         return $query;
@@ -62,7 +60,7 @@ abstract class NestedResource extends Resource
             $prefix .= $parent->urlPart . '/{' . $parent->urlPlaceholder . '}/';
         }
 
-        Route::name( (string) str($slug)
+        Route::name((string) str($slug)
             ->replace('/', '.')
             ->append('.'))
             ->prefix($prefix . $slug)
@@ -75,10 +73,10 @@ abstract class NestedResource extends Resource
             });
     }
 
-    public static function getUrl(string $name = 'index', array $parameters = [], bool $isAbsolute = true, ?string $panel = null, ?Model $tenant = null): string
+    public static function getUrl(string $name = 'index', array $parameters = [], bool $isAbsolute = true, string $panel = null, Model $tenant = null): string
     {
         // todo resolved
-        if (!is_array($parameters)) {
+        if (! is_array($parameters)) {
             $parameters = [$parameters];
         }
 

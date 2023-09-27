@@ -29,6 +29,7 @@ trait NestedEditPage
             $this->urlParameters = $this->getUrlParametersForState();
         }
     }
+
     public function mount(int | string $record): void
     {
         // todo resolved
@@ -105,7 +106,6 @@ trait NestedEditPage
         return $nestedCrumbs;
     }
 
-
     protected function configureDeleteAction(\Filament\Actions\DeleteAction $action): void
     {
         // todo resolved
@@ -115,7 +115,6 @@ trait NestedEditPage
             ->authorize($resource::canDelete($this->getRecord()))
             ->successRedirectUrl($resource::getUrl('index', $this->urlParameters));
     }
-
 
     protected function getRedirectUrl(): string
     {
@@ -132,7 +131,7 @@ trait NestedEditPage
         return $resource::getUrl('index', $this->urlParameters);
     }
 
-    protected function getParentId(): string|int
+    protected function getParentId(): string | int
     {
         /** @var NestedResource $resource */
         $resource = $this::getResource();

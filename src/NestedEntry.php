@@ -7,15 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class NestedEntry
 {
     public function __construct(
-        public string          $urlPlaceholder,
-        public string          $urlPart,
+        public string $urlPlaceholder,
+        public string $urlPart,
         /** @var class-string<\Filament\Resources\Resource> $resource */
-        public string          $resource,
-        public string          $label,
-        public null|string|int $id,
-        public array           $urlParams,
-    )
-    {
+        public string $resource,
+        public string $label,
+        public null | string | int $id,
+        public array $urlParams,
+    ) {
     }
 
     public function getListUrl(): string
@@ -44,7 +43,7 @@ class NestedEntry
         return $this->resource::getRecordTitle($this->resource::getModel()::find($this->id()));
     }
 
-    private function id(): string|int|null
+    private function id(): string | int | null
     {
         return $this->id;
     }

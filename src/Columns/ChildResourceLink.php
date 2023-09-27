@@ -14,7 +14,7 @@ class ChildResourceLink extends TextColumn
     private string $resourceClass;
 
     /**
-     * @param NestedResource $name
+     * @param  NestedResource  $name
      */
     public static function make(string $name): static
     {

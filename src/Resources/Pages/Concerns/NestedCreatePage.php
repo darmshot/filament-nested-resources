@@ -33,7 +33,7 @@ trait NestedCreatePage
         }
     }
 
-    public function mount():void
+    public function mount(): void
     {
         // todo resolve
         parent::mount();
@@ -127,10 +127,6 @@ trait NestedCreatePage
 
         return $record;
 
-
-
-
-
     }
 
     protected function getTableQuery(): Builder
@@ -150,7 +146,6 @@ trait NestedCreatePage
             ->color('gray');
     }
 
-
     protected function getRedirectUrl(): string
     {
         $resource = static::getResource();
@@ -166,7 +161,7 @@ trait NestedCreatePage
         return $resource::getUrl('index', $this->urlParameters);
     }
 
-    protected function getParentId(): string|int
+    protected function getParentId(): string | int
     {
         /** @var NestedResource $resource */
         $resource = $this::getResource();
