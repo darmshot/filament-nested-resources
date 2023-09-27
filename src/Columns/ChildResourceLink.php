@@ -9,13 +9,10 @@ use Illuminate\Support\Str;
 class ChildResourceLink extends TextColumn
 {
     /**
-     * @var NestedResource
+     * @link NestedResource
      */
     private string $resourceClass;
 
-    /**
-     * @param  NestedResource  $name
-     */
     public static function make(string $name): static
     {
         $item = parent::make($name);

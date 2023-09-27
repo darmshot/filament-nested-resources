@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Filament\Resources\Pages\EditRecord
- * @extends \Filament\Resources\Pages\ViewRecord
- * @extends \Filament\Resources\Pages\ListRecords
+ * @mixin \Filament\Resources\Pages\CreateRecord
  */
 trait NestedCreatePage
 {
@@ -161,7 +159,7 @@ trait NestedCreatePage
         return $resource::getUrl('index', $this->urlParameters);
     }
 
-    protected function getParentId(): string | int
+    protected function getParentId(): string|int
     {
         /** @var NestedResource $resource */
         $resource = $this::getResource();
