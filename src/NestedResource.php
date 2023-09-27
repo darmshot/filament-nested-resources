@@ -104,7 +104,6 @@ abstract class NestedResource extends Resource
      */
     public static function getParentTree(string $parent, array $urlParams = []): array
     {
-        /** @var $parent Resource|NestedResource */
         $singularSlug = Str::camel(Str::singular($parent::getSlug()));
 
         $list = [];
@@ -137,7 +136,6 @@ abstract class NestedResource extends Resource
 
     public static function getParentParametersForUrl(string $parent, array $urlParameters = []): array
     {
-        /** @var $parent Resource|NestedResource */
         $list = [];
         $singularSlug = Str::camel(Str::singular($parent::getSlug()));
         if (new $parent() instanceof NestedResource) {

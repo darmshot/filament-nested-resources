@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Filament\Resources\Pages\EditRecord
- * @extends \Filament\Resources\Pages\ViewRecord
- * @extends \Filament\Resources\Pages\ListRecords
+ * @mixin \Filament\Resources\Pages\ListRecords
  */
 trait NestedListPage
 {

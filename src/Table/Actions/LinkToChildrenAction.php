@@ -2,13 +2,11 @@
 
 namespace Darmshot\FilamentNestedResources\Table\Actions;
 
-use Darmshot\FilamentNestedResources\NestedResource;
 use Filament\Tables\Actions\Action;
 use Illuminate\Support\Str;
 
 class LinkToChildrenAction extends Action
 {
-    /** @var NestedResource */
     private string $childResource;
 
     public function forChildResource(string $childResource): self
