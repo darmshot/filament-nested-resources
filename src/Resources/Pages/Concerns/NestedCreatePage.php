@@ -159,7 +159,7 @@ trait NestedCreatePage
         return $resource::getUrl('index', $this->urlParameters);
     }
 
-    protected function getParentId(): string|int
+    protected function getParentId(): string | int
     {
         /** @var NestedResource $resource */
         $resource = $this::getResource();

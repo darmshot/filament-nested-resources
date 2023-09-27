@@ -2,7 +2,6 @@
 
 namespace Darmshot\FilamentNestedResources\Table\Actions;
 
-use Darmshot\FilamentNestedResources\NestedResource;
 use Filament\Tables\Actions\Action;
 use Illuminate\Support\Str;
 
