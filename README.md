@@ -1,9 +1,12 @@
-# Nested resources plugin for Filament
+# Nested resources plugin for Filament 3
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/darmshot/filament-nested-resources.svg?style=flat-square)](https://packagist.org/packages/darmshot/filament-nested-resources)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/darmshot/filament-nested-resources/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/darmshot/filament-nested-resources/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/darmshot/filament-nested-resources/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/darmshot/filament-nested-resources/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/darmshot/filament-nested-resources.svg?style=flat-square)](https://packagist.org/packages/darmshot/filament-nested-resources)
+
+[//]: # ([![GitHub Tests Action Status]&#40;https://img.shields.io/github/actions/workflow/status/darmshot/filament-nested-resources/run-tests.yml?branch=main&label=tests&style=flat-square&#41;]&#40;https://github.com/darmshot/filament-nested-resources/actions?query=workflow%3Arun-tests+branch%3Amain&#41;)
+
+[//]: # ([![GitHub Code Style Action Status]&#40;https://img.shields.io/github/actions/workflow/status/darmshot/filament-nested-resources/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square&#41;]&#40;https://github.com/darmshot/filament-nested-resources/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain&#41;)
+
+[//]: # ([![Total Downloads]&#40;https://img.shields.io/packagist/dt/darmshot/filament-nested-resources.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/darmshot/filament-nested-resources&#41;)
 
 
 
