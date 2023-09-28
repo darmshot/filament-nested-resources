@@ -24,26 +24,26 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
-        Factory::guessFactoryNamesUsing(
+/*        Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Darmshot\\FilamentNestedResources\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
-        );
+        );*/
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            ActionsServiceProvider::class,
-            BladeCaptureDirectiveServiceProvider::class,
-            BladeHeroiconsServiceProvider::class,
-            BladeIconsServiceProvider::class,
+//            ActionsServiceProvider::class,
+//            BladeCaptureDirectiveServiceProvider::class,
+//            BladeHeroiconsServiceProvider::class,
+//            BladeIconsServiceProvider::class,
             FilamentServiceProvider::class,
-            FormsServiceProvider::class,
-            InfolistsServiceProvider::class,
+//            FormsServiceProvider::class,
+//            InfolistsServiceProvider::class,
             LivewireServiceProvider::class,
-            NotificationsServiceProvider::class,
-            SupportServiceProvider::class,
-            TablesServiceProvider::class,
-            WidgetsServiceProvider::class,
+//            NotificationsServiceProvider::class,
+//            SupportServiceProvider::class,
+//            TablesServiceProvider::class,
+//            WidgetsServiceProvider::class,
             FilamentNestedResourcesServiceProvider::class,
         ];
     }
